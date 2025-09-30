@@ -3,6 +3,8 @@ package livraria;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import livraria.model.Ebook;
+import livraria.model.Livro_Fisico;
 import livraria.util.Cores;
 
 public class Menu {
@@ -12,6 +14,13 @@ public class Menu {
 
 	int opcao; // Declaramos a variável do tipo int chamada opcao, que armazenará o número do menu
 
+	//criar produtos para testes da parte 2 do projeto
+	Livro_Fisico livro1 = new Livro_Fisico(1, "Comer Rezar Amar", 37.59f, 999, 1, "Capa Dura");
+	livro1.visualizar();
+	Ebook ebook1 = new Ebook(2, "Sem Esforco", 29.99f, 999, 2, "PDF");
+	ebook1.visualizar();
+
+	
 		while (true) {
 			System.out.println(Cores.ANSI_BLACK_BACKGROUND + Cores.TEXT_PURPLE_BOLD
 					+ "••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••");
