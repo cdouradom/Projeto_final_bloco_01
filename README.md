@@ -1,4 +1,4 @@
-# Projeto Conta Bancária [Banco Dourado] - Java
+# Projeto [Livraria Verso Dourado] - Java
 
 <br />
 
@@ -22,9 +22,7 @@
 
 <br />
 
-## 1. Descrição
-
-<br />
+## 📚 Descrição
 
 Para o **Projeto Final do Bloco 1** escolhi construir um sistema simples de **E-commerce para uma Livraria Online**, desenvolvido em **Java**, que oferece produtos físicos e digitais de diferentes estilos literários.
 
@@ -40,40 +38,48 @@ A aplicação tem como objetivo simular um ambiente de compras, permitindo o **c
 
 Este projeto serve como base prática para consolidar o aprendizado da POO aplicada a um cenário realista e de fácil compreensão.
 
-O sistema organiza as informações dos clientes — incluindo nome do titular, número da conta, saldo e tipo de conta — garantindo a realização segura das operações. Seu principal objetivo é automatizar e simplificar o gerenciamento de contas bancárias, como Conta Corrente e Conta Poupança, promovendo agilidade e precisão no controle financeiro.
+O sistema organiza as informações dos produtos disponíveis — incluindo o título do livro, o valor do produto, a quantidade em estoque, o tipo de produto, sendo físico o tipo de capa e sendo ebook o formato.
 
-Este projeto, desenvolvido em **Java**, foca no estudo e aplicação dos conceitos de **Programação Orientada a Objetos (POO)**, incluindo:
-
-- Classes e Objetos;
-- Atributos e Métodos;
-- Modificadores de Acesso;
-- Herança e Polimorfismo;
-- Classes Abstratas;
-- Interfaces.
+O principal objetivo é automatizar e simplificar o controle do estoque — garantindo assim a organização da loja virtual e promovendo agilidade e precisão na venda.
 
 Além de servir como um simulador funcional, o projeto oferece uma base prática para compreender os princípios fundamentais da POO aplicados a um cenário realista.
 
 <br />
 
-## 2. Funcionalidades do Projeto
+## 🚀 Funcionalidades do Projeto
+
+0. Encerra o programa e exibe os dados da desenvolvedora ✨ 
+
+1. **Cadastrar Produto:** Inclui novos livros físicos e ebooks no catálogo, especificando titulo do livro, o valor final, o estoque disponível e o tipo. O número da conta é gerado automaticamente.
+2. **Listar Produtos:** Mostra todos os itens cadastrados no sistema.
+3. **Consultar Produto por ID ou título:** Busca um produto específico, seja pelo ID ou pelo seu título.
+4. **Atualizar Produto:** Edita informações de um item já cadastrado com base no ID.
+5. **Excluir Produto:** Remove um item do catálogo com base no ID e após confirmação da ação.
 
 <br />
 
-1. **Criar Conta:** Cria uma nova conta bancária especificando nome do titular, número da agência, saldo inicial e propriedades específicas conforme o tipo da conta. O número da conta é gerado automaticamente.
-2. **Listar todas as Contas:** Lista todas as contas cadastradas no sistema.
-3. **Consultar uma Conta pelo número:** Encontra uma conta pelo número.
-4. **Consultar uma Conta pelo titular:** Encontra uma ou mais contas associadas ao nome do titular.
-5. **Editar Conta:** Permite atualizar os dados de uma conta existente a partir do número da conta.
-6. **Excluir Conta:** Remove uma conta específica com base no número da conta.
-7. **Sacar:** Realiza a retirada de um valor de uma conta, desde que o saldo seja suficiente.
-8. **Depositar:** Adiciona um valor ao saldo de uma conta existente.
-9. **Transferir:** Transfere um valor de uma conta para outra, respeitando os respectivos saldos e limites.
+## 🛠️ Tecnologias Utilizadas
+
+- **Java 17**
+- **Paradigma de Programação Orientada a Objetos (POO)**
+- **Collections (List, ArrayList, Stream API)**
+- **Interface e Controller** para CRUD
+- **Polimorfismo de sobrecarga e sobrescrita**
+- **Tratamento de exceções (InputMismatchException)**
 
 <br />
 
-## 3. Diagrama de Classes
+## 📂 Estrutura do Projeto
 
 <br />
+
+<div align="center">
+   <img src="./assets/estrutura.png" title="Estrutura do Projeto" width="50%"/>
+</div>
+
+<br />
+
+## 📘 Diagrama de Classes
 
 Um **Diagrama de Classes** é um modelo visual usado na programação orientada a objetos para representar a estrutura de um sistema. Ele exibe classes, atributos, métodos e os relacionamentos entre elas, como associações, heranças e dependências.
 
@@ -83,58 +89,68 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
 ```mermaid
 classDiagram
-class Conta {
-  - numero: int
-  - agencia: int
-  - tipo: int
-  - titular: String
-  - saldo: float
-  + get numero() int
-  + get agencia() int
-  + get tipo() int
-  + get titular() String
-  + get saldo() float
-  + set numero(numero: int) void
-  + set agencia(agencia: int) void
-  + set tipo(tipo: int) void
-  + set titular(titular: String) void
-  + set saldo(saldo: float) void
-  + sacar(valor: float) boolean
-  + depositar(valor: float) void
-  + visualizar() void
+class Produto {
+  - id: int
+  - titulo: String
+  - preco: float
+  - estoque: int
+  - categoria: int
+  + Produto(int id, String titulo, float preco, int estoque, int categoria)
+  + getId(): int
+  + setId(int id): void
+  + getTitulo(): String
+  + setTitulo(String titulo): void
+  + getPreco(): float
+  + setPreco(float preco): void
+  + getEstoque(): int
+  + setEstoque(int estoque): void
+  + getCategoria(): int
+  + setCategoria(int categoria): void
+  + visualizar(): void
 }
-class ContaCorrente {
-  - limite: float
-  + get limite() float
-  + set limite(limite: float) void
-  + sacar(valor: float) boolean
-  + visualizar() void
+
+class Livro_Fisico {
+  - capa: String
+  + Livro_Fisico(int id, String titulo, float preco, int estoque, int categoria, String capa)
+  + getCapa(): String
+  + setCapa(String capa): void
+  + visualizar(): void
 }
-class ContaPoupanca {
-  - aniversario: int
-  + get aniversario() int
-  + set aniversario(aniversario: int) void
-  + visualizar() void
+
+class Ebook {
+  - formato: String
+  + Ebook(int id, String titulo, float preco, int estoque, int categoria, String formato)
+  + getFormato(): String
+  + setFormato(String formato): void
+  + visualizar(): void
 }
-ContaCorrente --> Conta
-ContaPoupanca --> Conta
+
+Livro_Fisico --> Produto
+Ebook --> Produto
+
 ```
 
 <br />
 
-## 4. Tela Inicial do Sistema - Menu
+## ✨ Slogan da Livraria
+
+**“Livraria Verso Dourado – O brilho da leitura na sua vida!”**
+
+<br />
+
+
+
+## 💻  Tela Inicial do Sistema - Menu
 
 <br />
 
 <div align="center">
-   <img src="https://i.imgur.com/MFK9yXB.png" title="source: imgur.com" width="90%"/>
+   <img src="./assets/menu.png" title="Tela Inicial do Sistema - Menu" width="70%"/>
 </div>
 
 <br />
 
-## 5. Requisitos
-
-<br />
+## 📌 Requisitos
 
 Para executar os códigos localmente, você precisará de:
 
@@ -143,16 +159,14 @@ Para executar os códigos localmente, você precisará de:
 
 <br />
 
-## 6. Como Executar o projeto no Eclipse/STS
+## ❔Como Executar o projeto no Eclipse/STS
 
-<br />
+### ❗1. Importando o Projeto
 
-### 6.1. Importando o Projeto
-
-1. Clone o repositório do Projeto [Conta Bancária](https://github.com/cdouradom/Conta-Bancaria) dentro da pasta do *Workspace* do Eclipse/STS
+Antes de tudo - Clone o repositório do Projeto [[Projeto_final_bloco_01](https://github.com/cdouradom/Projeto_final_bloco_01)]dentro da pasta do *Workspace* do Eclipse/STS
 
 ```bash
-git remote add origin git@github.com:cdouradom/Conta-Bancaria.git
+git remote add origin git@github.com:cdouradom/Projeto_final_bloco_01.git
 ```
 
 2. **Abra o Eclipse/STS** e selecione a pasta do *Workspace* onde você clonou o repositório do projeto
@@ -164,7 +178,7 @@ git remote add origin git@github.com:cdouradom/Conta-Bancaria.git
 
 <br />
 
-### 6.2. Executando o projeto
+### ❗2. Executando o projeto
 
 1. Na guia **Package Explorer**, localize o Projeto Conta Bancária
 2. Abra a **Classe Menu**
@@ -174,9 +188,7 @@ git remote add origin git@github.com:cdouradom/Conta-Bancaria.git
 
 <br />
 
-## 7. Contribuição
-
-<br />
+## 💬  Contribuição
 
 Este repositório é parte de um projeto educacional, mas contribuições são sempre bem-vindas! Caso tenha sugestões, correções ou melhorias, fique à vontade para:
 
@@ -186,9 +198,14 @@ Este repositório é parte de um projeto educacional, mas contribuições são s
 
 <br />
 
-##  8. Contato
+
+
+## 👩‍💻 Autora
+
+**Cíntia Marques Dourado**
+
+ 📧 Email: CintiaD@genstidents.org ou cdouradom@gmail.com
+
+ 🌐 GitHub: [cdouradom](https://github.com/cdouradom) Para dúvidas, sugestões ou colaborações, entre em contato via GitHub ou abra uma issue!
 
 <br />
-
-Desenvolvido por [**CINTIA DOURADO**](https://github.com/cdouradom)
-Para dúvidas, sugestões ou colaborações, entre em contato via GitHub ou abra uma issue!

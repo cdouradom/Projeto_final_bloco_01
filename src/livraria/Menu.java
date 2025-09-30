@@ -22,11 +22,6 @@ public class Menu {
 		// Declaramos a variável do tipo int chamada opcao, que armazenará o ID do menu
 		int opcao; 
 
-		// criar produtos para testes da parte 2 do projeto
-		Livro_Fisico livro1 = new Livro_Fisico(1, "Comer Rezar Amar", 37.59f, 999, 1, "Capa Dura");
-		livro1.visualizar();
-		Ebook ebook1 = new Ebook(2, "Sem Esforco", 29.99f, 999, 2, "PDF");
-		ebook1.visualizar();
 
 		while (true) {
 			System.out.println(Cores.ANSI_BLACK_BACKGROUND + Cores.TEXT_PURPLE_BOLD
@@ -164,9 +159,9 @@ public class Menu {
 	//Metodo que vai criar produtos testes conforme os parametros dentro dele
 	private static void criarProdutosTeste() { // criado o metodo depois de configurar na controller
 		produtoController.cadastrar(
-				new Livro_Fisico(produtoController.gerarId(), "ACENDA SUA LUZ", 33.99f, 730, 1, "Capa Dura"));
+				new Livro_Fisico(produtoController.gerarId(), "Acensa Sua Luz", 33.99f, 730, 1, "Capa Dura"));
 		produtoController
-				.cadastrar(new Ebook(produtoController.gerarId(), "PAI RICO - PAI POBRE", 21.49f, 225, 2, "PDF"));
+				.cadastrar(new Ebook(produtoController.gerarId(), "Sem Esforco", 21.49f, 225, 2, "PDF"));
 	}
 
 	//Metodo responsavel por procurar os produtos pelo ID informado
@@ -203,6 +198,7 @@ public class Menu {
 		}
 		case 2 -> {
 			System.out.print("Digite o formato do eBook ");
+			leia.skip("\\R");
 			String formato = leia.nextLine();
 			produtoController
 					.cadastrar(new Ebook(produtoController.gerarId(), titulo, preco, estoque, categoria, formato));
