@@ -9,7 +9,7 @@ public interface ProdutoRepository { // nesta etapa, apenas definimos as assinat
 	public void listarTodos();
 	public void cadastrar(Produto produto);
 	public void atualizar(Produto produto);
-	public void procurarPorNumero(int id);
+	public void procurarPorId(int id);
 	public void deletar(int id);
 	public void buscarPorTitulo(String titulo);
 	
