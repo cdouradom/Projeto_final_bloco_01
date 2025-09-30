@@ -208,4 +208,6 @@ Este repositório é parte de um projeto educacional, mas contribuições são s
 
  🌐 GitHub: [cdouradom](https://github.com/cdouradom) Para dúvidas, sugestões ou colaborações, entre em contato via GitHub ou abra uma issue!
 
+[🎥 Veja a demonstração do projeto](assets/Parte_03.mp4)
+
 <br />
